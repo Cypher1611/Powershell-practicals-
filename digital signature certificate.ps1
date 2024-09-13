@@ -10,3 +10,8 @@ New-SelfSignedCertificate -CertStoreLocation Cert:\CurrentUser\My `
 -Type CodeSigningCert
 
 Get-ChildItem Cert:\CurrentUser\My
+# create a sample file of power shell as sample.ps1 and the copy the path and execute it
+#binding the certificate
+$cert = Get-ChildItem Cert:\CurrentUser\My\C2101D47A66F04CB36A80DB965FA3B17F277D1BE
+
+Set-AuthenticodeSignature -Certificate $cert -FilePath .\Documents\sample.ps1
