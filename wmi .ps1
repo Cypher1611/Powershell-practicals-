@@ -16,3 +16,10 @@ Get-WmiObject -Class win32_LogicalDisk
 Get-WmiObject -Class win32_OperatingSystem
 
 Get-WmiObject -Class win32_computersystem -ComputerName DC.Member1 | Format-Table
+
+
+Get-WmiObject -Class win32_Computersystem
+$bios = Get-WmiObject -Class win32_BIOS
+
+Write-Host "your domain name is :"$(( Get-WmiObject -Class win32_Computersystem).domain)
+Write-Host "your BIOS serial number is:"$($bios.serialNumber)
