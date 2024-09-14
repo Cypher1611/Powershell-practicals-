@@ -27,4 +27,7 @@ configuration my-config{
 #to geneter the MOF file
 my-config
 #to apply the changes on remote machine(s
-Start-DscConfiguration path .\my-config
+Start-DscConfiguration -path .\my-config
+
+#to test
+Test-DscConfiguration -CimSession Member1
