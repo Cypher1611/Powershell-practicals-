@@ -1,19 +1,21 @@
 # to create the powershell code for dsc
+Import-Module -Name PSDesiredStateConfiguration
+
 configuration my-config{ 
 
        Node Member1{
             
-            service custom{
+            service custom1{
             
                 Name = "BITS"
-                Ensure = "Running"
+                Ensure = "present"
             
             }
             
-             service custom{
+             service custom2{
 
-                Name = "BITS"
-                Ensure = "Running"
+                Name = "WinRM"
+                Ensure = "Present"
            }
       
        }
@@ -23,4 +25,6 @@ configuration my-config{
 
 
 #to geneter the MOF file
-#to apply the changes on remote machine(s)
+my-config
+#to apply the changes on remote machine(s
+Start-DscConfiguration path .\my-config
